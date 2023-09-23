@@ -256,3 +256,31 @@ If you lose this file, you lose knowning the state of your infrastructure.
 #### Amazon S3 Bucket Naming Rules
 When I was trying to run `terraform apply`, I encountered an error in my terraform configuration, the `random_bucket_name` was in uppercase letters, this is not acceptable for S3 Buckets. Use only lowercase alphanumeric letters and hyphens (-).
 Avoid uppercase letters, underscores, or special characters to prevent errors during `terraform apply`.
+
+## Issues with Terraform Cloud Login and Gitpod Workspace
+
+When attempting to run `terraform login` it will launch bash a wiswig view to generate a token. However it does not work expected in `Gitpod VsCode` in the browser.
+
+The workaround is manually generate a token in Terraform Cloud
+
+```
+https://app.terraform.io/app/settings/tokens?source=terraform-login
+```
+
+Then create open the file manually here:
+
+```sh
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+
+Make sure to provide the following code (replace your token in the file):
+
+```json
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "YOUR-TERRAFORM-CLOUD-TOKEN"
+    }
+  }
+}
