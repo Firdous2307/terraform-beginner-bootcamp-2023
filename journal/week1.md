@@ -266,3 +266,61 @@ We use the jsonencode to create the json policy inline in the hcl.
 You can't use Local Values and Input Variables in **replace_triggered_by** since they lack side-effects for planning. Instead, leverage Terraform data's automatic planning action on input changes to indirectly trigger replacements using plain values
 
 [Terraform Data](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
+
+
+## :wrench: Provisioners
+
+Provisioners provide the capability to run commands on compute instances, like AWS CLI commands, as part of your Terraform workflow.
+
+While not the preferred approach according to HashiCorp, as Configuration Management tools like Ansible are typically a better fit, provisioners still offer functionality when necessary.
+
+Explore [Provisioners Syntax](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax) in the documentation.
+
+
+
+### :computer: Local-exec Provisioner
+
+The Local-exec provisioner allows you to run commands on the machine executing Terraform commands, such as `plan` or `apply`.
+
+Here's an example of how to use it with an AWS instance resource:
+
+```tf
+resource "aws_instance" "web" {
+  # ...
+  provisioner "local-exec" {
+    command = "echo The server's IP address is ${self.private_ip}"
+  }
+}
+```
+
+[Local-Exec](https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec)
+
+
+### :rocket: Remote-exec Provisioner
+
+The Remote-exec provisioner allows you to execute commands on a targeted machine. You'll need to provide credentials, such as SSH, to access the remote machine.
+
+Here's an example using an AWS instance resource:
+
+```tf
+resource "aws_instance" "web" {
+  # ...
+  # Establishes connection to be used by all
+  # generic remote provisioners (i.e., file/remote-exec)
+  connection {
+    type     = "ssh"
+    user     = "root"
+    password = var.root_password
+    host     = self.public_ip
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "puppet apply",
+      "consul join ${aws_instance.web.private_ip}",
+    ]
+  }
+}
+
+```
+
+[Remote-Exec](https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec)
