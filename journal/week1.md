@@ -255,3 +255,14 @@ We use the jsonencode to create the json policy inline in the hcl.
 ```
 
 [jsonencode](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
+
+### Changing the Lifecycle of Resources
+
+[Meta Arguments Lifcycle](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
+
+
+## Terraform Data
+
+You can't use Local Values and Input Variables in **replace_triggered_by** since they lack side-effects for planning. Instead, leverage Terraform data's automatic planning action on input changes to indirectly trigger replacements using plain values
+
+[Terraform Data](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
