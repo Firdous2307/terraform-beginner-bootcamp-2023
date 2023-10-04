@@ -82,3 +82,26 @@ When multiple sources provide variable values, Terraform follows an order of pre
 
 Terraform allows you to set, override, and manage input variables in a structured way, with Terraform Cloud offering a secure method to handle sensitive data.
 
+
+
+## Import and Configuration Drift
+In Terraform, `import` adds existing resources to management, while `configuration drift` is when actual and desired states differ, which Terraform helps detect and correct for maintaining infrastructure consistency.
+
+
+## What happens if we lose our state file?
+Losing your Terraform state file usually requires manual removal of your cloud infrastructure. Terraform import may work for some resources, but you'll need to consult the provider documentation to see which resources support it.
+
+
+### Fix Missing Resources with Terraform Import
+
+`terraform import aws_s3_bucket.bucket bucket-name`
+
+
+[Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
+
+[AWS S3 Bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+
+
+
+### Fix Manual Configuration
+If someone makes manual changes to cloud resources through ClickOps, running `Terraform plan` will attempt to reconcile and bring the infrastructure back to its expected state, effectively addressing any configuration drift.
