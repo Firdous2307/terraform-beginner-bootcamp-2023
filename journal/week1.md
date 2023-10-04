@@ -105,3 +105,45 @@ Losing your Terraform state file usually requires manual removal of your cloud i
 
 ### Fix Manual Configuration
 If someone makes manual changes to cloud resources through ClickOps, running `Terraform plan` will attempt to reconcile and bring the infrastructure back to its expected state, effectively addressing any configuration drift.
+
+
+## Fix using Terraform Refresh
+
+```sh
+terraform apply -refresh-only -auto-approve
+```
+
+## Terraform Modules
+
+### Terraform Module Structure
+
+While it is advisable to organize modules in a directory named modules when working on them locally, you have flexibility in choosing the directory name as per your preference.
+
+
+
+### Passing Input Variables
+
+Input variables can be provided to a module, and for this to work correctly, the module needs to define these Terraform variables in its own `variables.tf` file.
+
+
+```tf
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
+}
+```
+
+### Modules Sources
+
+The `source` attribute allows you to import a module from various sources, including local paths, GitHub repositories, and the Terraform Registry.
+
+
+```tf
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+}
+```
+
+
+[Modules Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
