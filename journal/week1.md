@@ -1,5 +1,28 @@
 # Terraform Beginner Bootcamp 2023 - Week 1 
 
+## Fixing Tags
+
+[How to Delete Local and Remote Tags on Git](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
+
+Locall delete a tag
+```sh
+git tag -d <tag_name>
+```
+
+Remotely delete tag
+
+```sh
+git push --delete origin tagname
+```
+
+Checkout the commit that you want to retag. Grab the sha from your Github history.
+
+```sh
+git checkout <SHA>
+git tag M.M.P
+git push --tags
+git checkout main
+```
 
 ## Journal TOC and Major Version :open_book:
 
@@ -147,3 +170,48 @@ module "terrahouse_aws" {
 
 
 [Modules Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
+
+
+## Important Considerations for Using ChatGPT to Generate Terraform Code
+
+1. **Outdated Information**: Language Models like ChatGPT may lack access to the latest Terraform documentation, potentially leading to code that doesn't align with current best practices.
+
+2. **Deprecated Examples**: Generated code might rely on outdated conventions or deprecated Terraform features, which can result in issues when applied to modern infrastructure.
+
+3. **Provider Changes**: Providers frequently update their APIs, affecting Terraform configurations. LLM-generated code may not account for these changes, causing configuration errors.
+
+4. **Mitigation**: Always cross-reference generated code with official Terraform documentation, stay informed about provider updates, and prioritize up-to-date best practices to ensure accurate and reliable infrastructure code.
+
+
+## Working with Files in Terraform
+
+
+### Fileexists function
+
+This is a built in terraform function to check the existance of a file.
+
+```tf
+condition = fileexists(var.error_html_filepath)
+```
+
+[Terraform `fileexists` Function](https://developer.hashicorp.com/terraform/language/functions/fileexists)
+
+### Filemd5
+
+[Terraform filemd5 Function](https://developer.hashicorp.com/terraform/language/functions/filemd5)
+
+### Path Variable
+
+In terraform there is a special variable called `path` that allows us to reference local paths:
+- path.module = get the path for the current module
+- path.root = get the path for the root module
+
+[Special Path Variable](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
+
+```
+resource "aws_s3_object" "index_html" {
+  bucket = aws_s3_bucket.website_bucket.bucket
+  key    = "index.html"
+  source = "${path.root}/public/index.html"
+}
+```
