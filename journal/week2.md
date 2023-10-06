@@ -51,3 +51,8 @@ bundle exec ruby server.rb
 ```
 
 All of the code for our server is stored in the `server.rb` file.
+
+
+## Binding.Pry
+
+`binding.pry` s a breakpoint used for interactive debugging in Ruby programs, allowing you to pause execution and examine the program's state.
