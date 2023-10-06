@@ -6,6 +6,8 @@
 
 - :date: [Week 0 Journal](journal/week0.md)
 - :date: [Week 1 Journal](journal/week1.md)
+- :date: [Week 2 Journal](journal/week2.md)
+
 
 ## Extras :sparkles:
 
