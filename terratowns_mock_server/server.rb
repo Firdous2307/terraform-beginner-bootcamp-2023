@@ -27,12 +27,11 @@ class Home
   attr_accessor :town, :name, :description, :domain_name, :content_version
 
   validates :town, presence: true, inclusion: { in: [
-    'leaf-village',
-    'sand-village',
-    'stone-village',
-    'mist-village',
-    'cloud-village',
-    'sound-village'
+    'melomaniac-mansion',
+    'cooker-cove',
+    'video-valley',
+    'the-nomad-pad',
+    'gamers-grotto'
   ] }
   # visible to all users
   validates :name, presence: true
