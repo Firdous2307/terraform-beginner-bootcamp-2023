@@ -122,6 +122,7 @@ func Resource() *schema.Resource {
 	return resource
 }
 
+<<<<<<< HEAD
 func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	log.Print("resourceHouseCreate:start")
 	var diags diag.Diagnostics
@@ -320,3 +321,4 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 	log.Print("resourceHouseDelete:end")
 	return diags
 }
+
