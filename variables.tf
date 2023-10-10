@@ -10,19 +10,44 @@ variable "teacherseat_user_uuid" {
  type = string
 }
 
-variable "bucket_name" {
- type = string
+variable "anime" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
-variable "index_html_filepath" {
-  type = string
+
+variable "r-b" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
-variable "error_html_filepath" {
-  type = string
+
+variable "naija-jollof-rice" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
-variable "content_version" {
-  type        = number
+
+variable "christopher-nolan" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
-variable "assets_path" {
-  description = "Path to assets folder"
-  type = string
+
+variable "lagos-life" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
+}
+
+variable "fifa-23" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
