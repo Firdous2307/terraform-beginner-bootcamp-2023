@@ -27,7 +27,7 @@ provider "terratowns" {
 
 }
 
-module "home_anime_hosting" {
+module "anime_hosting" {
   source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
   public_path = var.anime.public_path
@@ -35,118 +35,73 @@ module "home_anime_hosting" {
 }
 
 
-resource "terratowns_home" "home_anime" {
+resource "terratowns_home" "anime" {
   name = "Let's talk about Anime!!"
   description = <<DESCRIPTION
 Anime is Japanese animation encompassing hand-drawn and computer-generated styles.
 In Japan, it refers to all animated works, while outside Japan, it specifically denotes Japanese-produced animation.
 Elements of anime can also appear in video games and animations worldwide.
 DESCRIPTION
-  domain_name = module.home_anime_hosting.domain_name
+  domain_name = module.anime_hosting.domain_name
   town = "missingo"
   content_version = var.anime.content_version
 }
 
 
-module "home_r-b_hosting" {
+module "r-b_hosting" {
   source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
   public_path = var.r-b.public_path
   content_version = var.r-b.content_version
 }
 
-resource "terratowns_home" "home_r-b" {
+resource "terratowns_home" "r-b" {
   name = "Welcome to my Music Realm"
   description = <<DESCRIPTION
-Let's talk about my favorite genre which is Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto.
-It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village. 
+Welcome to Melomaniac Mansion, where we groove to the smooth melodies and soulful vocals of R&B music.
+R&B tells stories of love and life through its beats.
+From classics to modern hits, explore a genre that spans generations. 
+Let's dive into the R&B realm! 🎵🎤 #RnBRealm"
 DESCRIPTION
-  domain_name = module.home_r-b_hosting.domain_name
+  domain_name = module.r-b_hosting.domain_name
   town = "melomaniac-mansion"
   content_version = var.r-b.content_version
 }
 
 
-module "home_naija-jollof-rice_hosting" {
+module "naija-jollof-rice_hosting" {
   source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
   public_path = var.naija-jollof-rice.public_path
   content_version = var.naija-jollof-rice.content_version
 }
 
-resource "terratowns_home" "home_naija-jollof-rice" {
-  name = "Welcome to my Music Realm"
+resource "terratowns_home" "naija-jollof-rice" {
+  name = "Naija Jollof Rice is the Best Out There"
   description = <<DESCRIPTION
-Let's talk about my favorite genre which is Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto.
-It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village. 
-DESCRIPTION
-  domain_name = module.home_naija-jollof-rice_hosting.domain_name
+  Naija Jollof Rice, a culinary masterpiece from Nigeria, is a delightful medley of perfectly seasoned rice, vibrant red peppers, and a symphony of flavors that dance on your taste buds.
+  This iconic dish embodies the heart and soul of West African cuisine, and it's the epitome of comfort and celebration on every plate.
+  DESCRIPTION
+  domain_name = module.naija-jollof-rice_hosting.domain_name
   town = "cooker-cove"
   content_version = var.naija-jollof-rice.content_version
 }
 
-
-
-module "home_christopher-nolan_hosting" {
+module "christopher-nolan_hosting" {
   source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
   public_path = var.christopher-nolan.public_path
   content_version = var.christopher-nolan.content_version
 }
 
-resource "terratowns_home" "home_christopher-nolan" {
-  name = "Welcome to my Music Realm"
+resource "terratowns_home" "christopher-nolan" {
+  name = "The Cinematic World of Christopher Nolan"
   description = <<DESCRIPTION
-Let's talk about my favorite genre which is Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto.
-It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village. 
-DESCRIPTION
-  domain_name = module.home_christopher-nolan.domain_name
+  Explore the visionary works of Christopher Nolan, a master of storytelling and filmmaking.
+  Dive into mind-bending narratives and breathtaking visuals in his iconic movies like
+  Inception, The Dark Knight Trilogy, and Interstellar etc.
+  DESCRIPTION
+  domain_name = module.christopher-nolan_hosting.domain_name
   town = "video-valley"
   content_version = var.christopher-nolan.content_version
 }
-
-
-
-module "home_lagos-life_hosting" {
-  source = "./modules/terrahome_aws"
-  user_uuid = var.teacherseat_user_uuid
-  public_path = var.lagos-life.public_path
-  content_version = var.lagos-life.content_version
-}
-
-resource "terratowns_home" "home_lagos-life" {
-  name = "Welcome to my Music Realm"
-  description = <<DESCRIPTION
-Let's talk about my favorite genre which is Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto.
-It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village. 
-DESCRIPTION
-  domain_name = module.home_lagos-life.domain_name
-  town = "the-nomad-pad"
-  content_version = var.lagos-life.content_version
-}
-
-
-
-
-module "home_fifa-23_hosting" {
-  source = "./modules/terrahome_aws"
-  user_uuid = var.teacherseat_user_uuid
-  public_path = var.fifa-23.public_path
-  content_version = var.fifa-23.content_version
-}
-
-resource "terratowns_home" "home_fifa-23" {
-  name = "Welcome to my Music Realm"
-  description = <<DESCRIPTION
-Let's talk about my favorite genre which is Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto.
-It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village. 
-DESCRIPTION
-  domain_name = module.home_fifa-23.domain_name
-  town = "gamers-grotto"
-  content_version = var.fifa-23.content_version
-}
-
-
-
-
-

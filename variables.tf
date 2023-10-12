@@ -37,17 +37,3 @@ variable "christopher-nolan" {
     content_version = number
   })
 }
-
-variable "lagos-life" {
-  type = object({
-    public_path = string
-    content_version = number
-  })
-}
-
-variable "fifa-23" {
-  type = object({
-    public_path = string
-    content_version = number
-  })
-}

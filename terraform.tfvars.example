@@ -1,7 +1,7 @@
 terratowns_endpoint="https://terratowns.cloud/api"
 anime = {
   public_path = "/workspace/terraform-beginner-bootcamp-2023/public/anime"
-  content_version = 2 
+  content_version = 1 
 }
 r-b = {
   public_path = "/workspace/terraform-beginner-bootcamp-2023/public/r-b"
@@ -13,13 +13,5 @@ naija-jollof-rice = {
 }
 christopher-nolan = {
   public_path = "/workspace/terraform-beginner-bootcamp-2023/public/christopher-nolan"
-  content_version = 1 
-}
-lagos-life = {
-  public_path = "/workspace/terraform-beginner-bootcamp-2023/public/lagos-life"
-  content_version = 1 
-}
-fifa-23 = {
-  public_path = "/workspace/terraform-beginner-bootcamp-2023/public/fifa-23"
   content_version = 1 
 }

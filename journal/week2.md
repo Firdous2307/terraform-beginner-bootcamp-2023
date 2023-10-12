@@ -56,3 +56,11 @@ All of the code for our server is stored in the `server.rb` file.
 ## Binding.Pry
 
 `binding.pry` s a breakpoint used for interactive debugging in Ruby programs, allowing you to pause execution and examine the program's state.
+
+## CRUD
+
+Terraform Provider resources utilize CRUD.
+
+CRUD stands for Create, Read Update, and Delete
+
+[Create,Read,Update and Delete](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
