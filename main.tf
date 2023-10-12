@@ -64,10 +64,9 @@ From classics to modern hits, explore a genre that spans generations.
 Let's dive into the R&B realm! 🎵🎤 #RnBRealm"
 DESCRIPTION
   domain_name = module.r-b_hosting.domain_name
-  town = "melomaniac-mansion"
-  content_version = var.r-b.content_version
+  town = "missingo"
+  content_version = var.anime.content_version
 }
-
 
 module "naija-jollof-rice_hosting" {
   source = "./modules/terrahome_aws"
@@ -86,6 +85,7 @@ resource "terratowns_home" "naija-jollof-rice" {
   town = "cooker-cove"
   content_version = var.naija-jollof-rice.content_version
 }
+
 
 module "christopher-nolan_hosting" {
   source = "./modules/terrahome_aws"
