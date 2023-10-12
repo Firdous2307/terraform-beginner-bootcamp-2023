@@ -322,10 +322,9 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 	if resp.StatusCode != http.StatusOK {
 		return diag.FromErr(fmt.Errorf("failed to update home resource, status_code: %d, status: %s, body %s", resp.StatusCode, resp.Status, responseData))
 		
-
+	}
 	d.SetId("")
 
 	log.Print("resourceHouseDelete:end")
 	return diags
 }
-
